@@ -8,6 +8,8 @@ on:
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # pour pouvoir push les changements
 
     steps:
       # Checkout du repo
@@ -38,6 +40,5 @@ jobs:
           file_pattern: seen.json
           commit_user_name: github-actions[bot]
           commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          push: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
